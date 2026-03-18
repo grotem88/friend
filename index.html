@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>תיאום שיחה עם רפי</title>
+    <style>
+        /* עיצוב כללי */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+        }
+
+        /* מיכל הטופס */
+        .form-card {
+            background: white;
+            padding: 40px;
+            border-radius: 25px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+            width: 100%;
+            max-width: 450px;
+            text-align: center;
+        }
+
+        h1 {
+            color: #4a148c;
+            margin-bottom: 10px;
+            font-size: 28px;
+        }
+
+        p {
+            color: #666;
+            margin-bottom: 30px;
+        }
+
+        /* עיצוב שדות הקלט */
+        .input-group {
+            text-align: right;
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: #333;
+        }
+
+        input, select, textarea {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #eee;
+            border-radius: 12px;
+            font-size: 16px;
+            box-sizing: border-box;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+
+        input:focus, select:focus, textarea:focus {
+            border-color: #764ba2;
+        }
+
+        /* עיצוב הכפתור */
+        button {
+            width: 100%;
+            padding: 15px;
+            background: #764ba2;
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: transform 0.2s, background 0.3s;
+            margin-top: 10px;
+        }
+
+        button:hover {
+            background: #5a377e;
+            transform: translateY(-2px);
+        }
+
+        button:active {
+            transform: translateY(0);
+        }
+
+        .emoji {
+            font-size: 40px;
+            display: block;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="form-card">
+    <span class="emoji">📞</span>
+    <h1>שלום רפי!</h1>
+    <p>מתי קובעים לדבר? בחר זמן ונושא ונצא לדרך:</p>
+
+    <!-- שליחת המייל דרך שירות Formspree לכתובת שלך -->
+    <form action="https://formspree.io/f/grotem88@gmail.com" method="POST">
+        
+        <!-- זיהוי אוטומטי של המשתמש -->
+        <input type="hidden" name="שם השולח" value="רפי">
+
+        <div class="input-group">
+            <label for="date">באיזה יום?</label>
+            <input type="date" id="date" name="תאריך המפגש" required>
+        </div>
+
+        <div class="input-group">
+            <label for="time">באיזו שעה?</label>
+            <input type="time" id="time" name="שעת המפגש" required>
+        </div>
+
+        <div class="input-group">
+            <label for="topic">על מה נדבר?</label>
+            <select id="topic" name="נושא השיחה" required>
+                <option value="" disabled selected>בחר נושא...</option>
+                <option value="סתם לדבר">סתם לדבר ☕</option>
+                <option value="לשמוע מה נשמע">לשמוע מה נשמע 👂</option>
+                <option value="לעשות משהו יחד">לעשות משהו יחד 🏃‍♂️</option>
+                <option value="לרכל על מישהו">לרכל על מישהו :-) 🙊</option>
+                <option value="לעשות ביזנס יחד">לעשות ביזנס יחד 💼</option>
+                <option value="משהו אחר">משהו אחר... 🤔</option>
+            </select>
+        </div>
+
+        <div class="input-group">
+            <label for="notes">עוד משהו שרפי רוצה להגיד?</label>
+            <textarea id="notes" name="הערות נוספות" rows="3" placeholder="כאן אפשר לכתוב עוד פרטים..."></textarea>
+        </div>
+
+        <button type="submit">שלח הצעה לשיחה</button>
+    </form>
+</div>
+
+</body>
+</html>
